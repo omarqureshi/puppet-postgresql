@@ -41,7 +41,8 @@ class postgresql::debian::v9-1 {
         "postgresql-client-${version}",
         "postgresql-common",
         "postgresql-client-common",
-        "postgresql-contrib-${version}"
+        "postgresql-contrib-${version}",
+        "postgresql-server-dev-${version}",
         ]:
         pin      => "release a=${lsbdistcodename}-backports",
         priority => "1100",
