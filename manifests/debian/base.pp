@@ -21,6 +21,7 @@ class postgresql::debian::base inherits postgresql::base {
     "postgresql-common",
     "postgresql-contrib-${version}",
     "postgresql-server-dev-${version}",
+    "libpq-dev",
     ]:
     ensure  => present,
     require => Package["postgresql"],
