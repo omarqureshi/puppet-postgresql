@@ -2,7 +2,7 @@
 
 ==Class: postgresql::debian::base
 
-This class is dedicated to the common parts 
+This class is dedicated to the common parts
 shared by the different flavors of Debian
 
 */
@@ -19,6 +19,7 @@ class postgresql::debian::base inherits postgresql::base {
   package {[
     "postgresql-client-${version}",
     "postgresql-common",
+    "libpq-dev",
     "postgresql-contrib-${version}"
     ]:
     ensure  => present,
@@ -32,7 +33,7 @@ class postgresql::debian::base inherits postgresql::base {
     environment => "PWD=/",
     before      => Postgresql::Cluster["main"],
   }
-  
+
   postgresql::cluster {"main":
     ensure      => present,
     clustername => "main",
@@ -41,5 +42,5 @@ class postgresql::debian::base inherits postgresql::base {
     data_dir    => "${postgresql::params::data_dir}",
     require     => [Package["postgresql"], Exec["drop initial cluster"]],
   }
-  
+
 }
