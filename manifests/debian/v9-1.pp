@@ -36,6 +36,7 @@ class postgresql::debian::v9-1 {
       }
 
       apt::preferences {[
+        "libpq5",
         "libpq-dev",
         "postgresql-${version}",
         "postgresql-client-${version}",
