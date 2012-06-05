@@ -10,7 +10,7 @@ Requires:
 
 */
 
-class postgresql::debian::v9-1::server {
+class postgresql::debian::v9-1::server inherits postgresql::base {{
   $version = "9.1"
   include postgresql::params
   include postgresql::debian::v9-1::client
