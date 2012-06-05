@@ -7,7 +7,7 @@ Requires:
 */
 
 class postgresql::debian::v9-1::client {
-
+  $version = "9.1"
   package {[
             "postgresql-client-${version}",
             "postgresql-common",

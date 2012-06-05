@@ -1,4 +1,5 @@
 class postgresql::debian::v9-1::repo {
+  $version = "9.1"
   apt::preferences {[
                      "libpq5",
                      "libpq-dev",
