@@ -9,7 +9,7 @@ Requires:
  - Class["apt::preferences"]
 
 */
-  
+
 class postgresql::debian::v9-1::server inherits postgresql::base {
   $version = "9.1"
   include postgresql::params
@@ -18,6 +18,11 @@ class postgresql::debian::v9-1::server inherits postgresql::base {
   Package["postgresql"] {
     name   => "postgresql-${version}",
     notify => Exec["drop initial cluster"],
+  }
+
+  exec { "reload postgresql ${version}":
+    refreshonly => true,
+    command     => "/etc/init.d/postgresql reload ${version}",
   }
 
   service {"postgresql":
