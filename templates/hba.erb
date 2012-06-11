@@ -96,5 +96,5 @@ host    all             all             ::1/128                 md5
 #host    replication     postgres        ::1/128                 md5
 
 <% pg_clients.each do |client| %>
-<%= client[:type] %>        <%= client[:db] %>       <%= client[:role] %>     <%= client[:address] %>       <%= client[:method] %>
+<%= client["type"] %>        <%= client["db"] %>       <%= client["role"] %>     <%= client["address"] %>       <%= client["method"] %>
 <% end %>
