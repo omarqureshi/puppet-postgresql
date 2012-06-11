@@ -1,6 +1,6 @@
 class postgresql::debian::v9-1::hba($clients) {
   $version = "9.1"
-  if $clients = "" {
+  if $clients == "" {
     $pg_clients = []
   } else {
     $pg_clients = $clients
